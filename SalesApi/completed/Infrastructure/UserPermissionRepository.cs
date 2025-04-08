@@ -13,6 +13,10 @@ public class UserPermissionRepository : IUserPermissionRepository
 
     public Task<List<MarketId>> GetUserMarketPermissions(UserId userId)
     {
+        // The following line is for ease of use when doing the client workshop.
+        // In real scenarios, it should be removed
+        return Task.FromResult(new List<MarketId> { new("no") });
+        
         var marketId = _userPermissions.GetValueOrDefault(userId);
         return Task.FromResult(new List<MarketId> { marketId });
     }
